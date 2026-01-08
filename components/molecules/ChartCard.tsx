@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import Card from '../atoms/Card';
 
 interface ChartCardProps {
   title: string;

@@ -131,30 +131,26 @@ export default function SalesChart() {
 
   return (
     <div className="space-y-6">
-      <FilterSection
-        onThresholdChange={setThreshold}
-        onChartTypeChange={setChartType}
-        currentChartType={chartType}
-      />
-      
+      {/* Filters and Title */}
+      <div className="space-y-4">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900">Sales Charts</h2>
+          <p className="text-sm text-gray-600 mt-1">Visualize sales trends and patterns</p>
+        </div>
+        <FilterSection
+          onThresholdChange={setThreshold}
+          onChartTypeChange={setChartType}
+          currentChartType={chartType}
+        />
+      </div>
+
+      {/* Main Chart */}
       <ChartCard
-        title={`Sales Data ${threshold > 0 ? `(Above $${threshold.toLocaleString()})` : ''}`}
-        description="Monthly sales comparison across 2022, 2023, and 2024"
+        title={`${chartType.charAt(0).toUpperCase() + chartType.slice(1)} Chart View`}
+        description={threshold > 0 ? `Showing sales above $${threshold.toLocaleString()}` : 'All sales data across 2022-2024'}
       >
         {renderChart()}
       </ChartCard>
-      
-      <div className="flex items-start gap-2 p-4 bg-blue-50 border border-blue-200 rounded-xl">
-        <svg className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-        </svg>
-        <div>
-          <p className="text-sm font-medium text-blue-900">
-            Data is simulated based on typical e-commerce sales patterns.
-            {threshold > 0 && ` Currently showing only data points above $${threshold.toLocaleString()}.`}
-          </p>
-        </div>
-      </div>
     </div>
   );
 }
