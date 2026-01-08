@@ -33,22 +33,24 @@ export default function FilterSection({
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-gray-50 rounded-xl border border-gray-200">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100 shadow-sm">
       {/* Threshold Filter */}
       <div className="space-y-3">
-        <label className="block">
-          <span className="text-sm font-semibold text-gray-900">Sales Threshold Filter</span>
-          <p className="text-xs text-gray-600 mt-1">Show data above a specific amount</p>
-        </label>
-        <div className="flex gap-2">
-          <Input
-            type="number"
-            value={threshold}
-            onChange={(e) => setThreshold(e.target.value)}
-            placeholder="e.g., 10000"
-            min="0"
-          />
-          <Button onClick={handleThresholdSubmit} className="whitespace-nowrap">
+        <div>
+          <span className="text-sm font-bold text-gray-900 block mb-1">Sales Threshold</span>
+          <p className="text-xs text-gray-600">Filter data above specific amount</p>
+        </div>
+        <div className="flex gap-2 items-end">
+          <div className="flex-1">
+            <Input
+              type="number"
+              value={threshold}
+              onChange={(e) => setThreshold(e.target.value)}
+              placeholder="e.g., 10000"
+              min="0"
+            />
+          </div>
+          <Button onClick={handleThresholdSubmit} size="md" className="shrink-0">
             Apply
           </Button>
         </div>
@@ -56,10 +58,10 @@ export default function FilterSection({
 
       {/* Chart Type Selector */}
       <div className="space-y-3">
-        <label className="block">
-          <span className="text-sm font-semibold text-gray-900">Chart Type</span>
-          <p className="text-xs text-gray-600 mt-1">Choose visualization style</p>
-        </label>
+        <div>
+          <span className="text-sm font-bold text-gray-900 block mb-1">Visualization</span>
+          <p className="text-xs text-gray-600">Choose chart style</p>
+        </div>
         <Select
           options={chartTypes}
           value={currentChartType}
