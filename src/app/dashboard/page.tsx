@@ -5,15 +5,22 @@ import SalesChart from "@/components/organisms/SalesChart";
 export default function DashboardPage() {
   return (
     <DashboardLayout>
-      <div className="px-4 md:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Sales Dashboard</h1>
-          <p className="text-gray-500 text-lg">Monitor your sales performance and trends</p>
+      <div className="space-y-8">
+        {/* Header Section */}
+        <div className="pt-2">
+          <h1 className="text-5xl font-bold text-gray-900 mb-2">Dashboard</h1>
+          <p className="text-lg text-gray-600">Real-time sales analytics and performance metrics</p>
         </div>
-        <DashboardHeader />
-        <div className="mt-8">
+
+        {/* Stats Cards */}
+        <section className="rounded-2xl p-8 bg-white border border-gray-100 shadow-sm">
+          <DashboardHeader />
+        </section>
+
+        {/* Charts Section */}
+        <section className="rounded-2xl p-8 bg-white border border-gray-100 shadow-sm">
           <SalesChart />
-        </div>
+        </section>
       </div>
     </DashboardLayout>
   );

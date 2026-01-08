@@ -15,14 +15,16 @@ export default function ChartCard({
   className = '',
 }: ChartCardProps) {
   return (
-    <Card className={className}>
-      <div className="mb-6 pb-4 border-b border-gray-100">
-        <h3 className="text-xl font-bold text-gray-800 mb-1">{title}</h3>
+    <div className={`space-y-4 ${className}`}>
+      <div>
+        <h3 className="text-xl font-bold text-gray-900">{title}</h3>
         {description && (
           <p className="text-sm text-gray-600 mt-1">{description}</p>
         )}
       </div>
-      <div className="h-80">{children}</div>
-    </Card>
+      <div className="h-96 bg-white rounded-xl border border-gray-100 p-4">
+        {children}
+      </div>
+    </div>
   );
 }

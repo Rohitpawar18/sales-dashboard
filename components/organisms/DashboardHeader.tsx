@@ -9,8 +9,12 @@ export default function DashboardHeader() {
   const growthRate = ((total2024 - total2023) / total2023 * 100).toFixed(1);
 
   return (
-    <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+    <div className="space-y-4">
+      <div>
+        <h2 className="text-2xl font-bold text-gray-900">Sales Overview</h2>
+        <p className="text-sm text-gray-600 mt-1">Year-over-year performance metrics</p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200 hover:border-green-300">
           <div className="flex items-start justify-between">
             <div className="flex-1">

@@ -46,16 +46,12 @@ export default function SalesChart() {
   }, [filteredData]);
 
   const renderChart = () => {
-    if (!isMounted) {
-      return <div className="h-full rounded-lg bg-gray-100 animate-pulse" />;
-    }
-
     switch (chartType) {
       case 'bar':
         return (
           <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={320}>
             <BarChart data={filteredData}>
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="month" />
               <YAxis tickFormatter={(value) => `$${value / 1000}k`} />
               <Tooltip formatter={(value) => formatCurrency(Number(value))} />
@@ -71,7 +67,7 @@ export default function SalesChart() {
         return (
           <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={320}>
             <LineChart data={filteredData}>
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="month" />
               <YAxis tickFormatter={(value) => `$${value / 1000}k`} />
               <Tooltip formatter={(value) => formatCurrency(Number(value))} />
