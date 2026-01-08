@@ -16,8 +16,8 @@ export default function ChartCard({
 }: ChartCardProps) {
   return (
     <Card className={className}>
-      <div className="mb-4">
-        <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+      <div className="mb-6 pb-4 border-b border-gray-100">
+        <h3 className="text-xl font-bold text-gray-800 mb-1">{title}</h3>
         {description && (
           <p className="text-sm text-gray-600 mt-1">{description}</p>
         )}
